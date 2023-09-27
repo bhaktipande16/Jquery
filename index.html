@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script src="cart.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <style>
+        .productname{
+            text-align: center;
+        }
+        .price{
+            text-align: center;
+        }
+    </style>
+
+</head>
+<body>
+    
+    <div data-role="page" id="home">
+        <div data-role="header">
+            <h1><span style="font-size: 40px; font-family: Georgia, 'Times New Roman', Times, serif;">Furniture Website</span></h1>
+        </div>
+
+        <div data-role="main" class="ui-content">
+
+            <span style="margin-left: 1350px;"><a href="#add-to-cart">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-cart-fill" viewBox="0 0 16 16" ><path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"></path></svg>
+            </a></span><br>
+
+            <!-- Product gallery shell to load HTML from JavaScript code -->
+                <div id="product-grid">
+                    
+                    <div id="product-item-container" hidden></div>
+                    <div id="product-item-container">
+                        <div class="row">
+                        <div class="product-item col">
+                            <img src="images/i1.jpg" style="width: 200px; height: 200px; margin-left: auto; margin-right: auto; display: block;">
+                            <div class="productname">Product 1</div>
+                            <div class="price">Rs.<span>1800.00</span></div>
+                            <div class="cart-action">
+                                <input type="text" class="product-quantity" name="quantity" value="1" size="2" style="width: 100px;">
+                                <input type="submit" value="Add to Cart" class="add-to-cart" onclick="addToCart(this)">
+                            </div>
+                        </div>
+                            
+                        <div class="product-item col">
+                            <img src="images/i2.jpg" style="width: 200px; height: 200px; margin-left: auto; margin-right: auto; display: block;">
+                            <div class="productname">Product 2</div>
+                            <div class="price">Rs.<span>800.00</span></div>
+                            <div class="cart-action">
+                                <input type="text" class="product-quantity" name="quantity" value="1" size="2">
+                                <input type="submit" value="Add to Cart" class="add-to-cart" onclick="addToCart(this)">
+                            </div>
+                        </div>
+
+                        <div class="product-item col">
+                            <img src="images/i3.jpg" style="width: 250px; height: 200px; margin-left: auto; margin-right: auto; display: block;">
+                            <div class="productname">Product 3</div>
+                            <div class="price">Rs.<span>500.00</span></div>
+                                <div class="cart-action">
+                                    <input type="text" class="product-quantity" name="quantity" value="1" size="2">
+                                    <input type="submit" value="Add to Cart" class="add-to-cart" onclick="addToCart(this)">
+                                </div>
+                        </div>
+                        </div>
+
+                        <div class="row">
+                        <div class="product-item col">
+                            <img src="images/i4.jpg" style="width: 200px; height: 200px; margin-left: auto; margin-right: auto; display: block;">
+                            <div class="productname">Product 4</div>
+                            <div class="price">Rs.<span>1000.00</span></div>
+                            <div class="cart-action">
+                                <input type="text" class="product-quantity" name="quantity" value="1" size="2">
+                                <input type="submit" value="Add to Cart" class="add-to-cart" onclick="addToCart(this)">
+                            </div>
+                        </div>
+
+                        <div class="product-item col">
+                            <img src="images/i5.jpg" style="width: 200px; height: 200px; margin-left: auto; margin-right: auto; display: block;">
+                            <div class="productname">Product 5</div>
+                            <div class="price">Rs.<span>500.00</span></div>
+                            <div class="cart-action">
+                                <input type="text" class="product-quantity" name="quantity" value="1" size="2">
+                                <input type="submit" value="Add to Cart" class="add-to-cart" onclick="addToCart(this)">
+                            </div>
+                        </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+        </div>
+    </div>
+
+    <div data-role="page" id="add-to-cart">
+        <div data-role="header">
+            <h1><span style="font-size: 40px; font-family: Georgia, 'Times New Roman', Times, serif;">Your Added Products</span></h1>
+        </div>
+
+        <div data-role="main">
+            <span style="margin-left: 1350px;"><a href="#home">HOMEPAGE</a></span><br><br>
+            <a onClick="emptyCart()"  style="width: 200px; margin-left: 1340px;" id="btnEmpty">Empty Cart</a>           
+            <div class="container">
+
+                <!--  Shopping cart table wrapper  -->
+                <div id="shopping-cart">
+                    <table class="tbl-cart" cellpadding="10" cellspacing="1">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th class='text-right' width="10%">Unit Price</th>
+                                <th class='text-right' width="5%">Quantity</th>
+                                <th class='text-right' width="10%">Sub Total</th>
+                            </tr>
+                        </thead>
+                        <!--  Cart table to load data on "add to cart" action -->
+                        <tbody id="cartTableBody">
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td class="text-right">Total:</td>
+                                <td id="itemCount" class="text-right" colspan="2"></td>
+                                <td id="totalAmount" class="text-right"></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+                
+            </div>            
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>
